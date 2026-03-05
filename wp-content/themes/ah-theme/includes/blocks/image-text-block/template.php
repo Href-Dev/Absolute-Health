@@ -44,7 +44,7 @@ if ($block && $block_id && isset($block['ghostkit']['styles']) && $spacings = $b
     id="<?php echo $block_id; ?>" 
     class="<?php echo $class_name; ?>"
 >
-    <div class="site-container <?php echo $flipped_layout ? 'flipped-layout' : ''; ?>">
+    <div class="site-container <?php echo $flipped_layout ? 'flipped-layout' : ''; ?>" data-animate>
         <div class="image-container">
             <?php echo acf_img($image, 'image'); ?>
         </div>

@@ -43,7 +43,7 @@ if ($block && $block_id && isset($block['ghostkit']['styles']) && $spacings = $b
     class="<?php echo $class_name; ?>"
 >
 <?php echo acf_img($background_image, 'background-image'); ?>
-    <div class="site-container">
+    <div class="site-container" data-animate="fade-in">
         <?php echo acf_img($main_image, 'main-image'); ?>
     </div>
 </section>

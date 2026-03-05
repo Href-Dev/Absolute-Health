@@ -32,7 +32,7 @@
         }
         .text-container {
             padding: 40px 45px;
-            @media only screen and (max-width: 768px) {
+            @media only screen and (max-width: 1024px) {
                 padding: 20px;
             }
             .category {
@@ -225,6 +225,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            height: auto;
+            min-height: 0;
             display: flex;
             align-items: flex-end;
             justify-content: flex-start;

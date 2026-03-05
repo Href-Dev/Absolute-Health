@@ -42,7 +42,7 @@ if ($block && $block_id && isset($block['ghostkit']['styles']) && $spacings = $b
     class="<?php echo $class_name; ?>"
 >
     <div class="site-container">
-            <div class="testimonials-carousel swiper" <?php if (count($testimonials) > 1) : ?>data-swiper-type="testimonials"<?php endif; ?>>
+            <div class="testimonials-carousel swiper" <?php if (count($testimonials) > 1) : ?>data-swiper-type="testimonials"<?php endif; ?> data-animate>
                 <div class="swiper-wrapper">
                     <?php foreach ($testimonials as $testimonial) : 
                         $quote = get_field('quote', $testimonial);

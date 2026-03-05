@@ -5,56 +5,83 @@
     }
     .site-container {
         max-width: 1253px;
-        .testimonial {
-            .inner-container {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                gap: 180px;
-                @media only screen and (max-width: 1920px) {
-                    gap: calc(180/1920 * 100vw);
-                }
-                @media only screen and (max-width: 767px) {
-                    flex-direction: column;
-                    gap: 20px;
-                }
-                .left-container {
-                    width: 50%;
-                    overflow: hidden;
-                    @media only screen and (max-width: 767px) {
-                        width: 100%;
-                    }
-                    img {
-                        width: 100%;
-                        height: auto;
-                        aspect-ratio: 1 / 1;
-                        border-radius: 50%;
-                    }
-                }
-                .right-container {
-                    width: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 36px;
-                    @media only screen and (max-width: 767px) {
-                        width: 100%;
-                    }
-                }
-            }
-            &.flipped {
+        .testimonials-carousel {
+            
+            .testimonial {
                 .inner-container {
-                    flex-direction: row-reverse;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 180px;
+                    @media only screen and (max-width: 1920px) {
+                        gap: calc(180/1920 * 100vw);
+                    }
                     @media only screen and (max-width: 767px) {
                         flex-direction: column;
+                        gap: 20px;
+                    }
+                    .left-container {
+                        width: 50%;
+                        @media only screen and (max-width: 767px) {
+                            width: 100%;
+                        }
+                        img {
+                            width: 100%;
+                            height: auto;
+                            aspect-ratio: 1 / 1;
+                            border-radius: 50%;
+                            opacity: 0;
+                            transition: all 0.5s ease-in-out;
+                        }
+                    }
+                    .right-container {
+                        width: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 36px;
+                        @media only screen and (max-width: 767px) {
+                            width: 100%;
+                        }
+                        transform: translateX(100%);
+                        opacity: 0;
+                        transition: all 0.5s ease-in-out;
+                    }
+                }
+                &.flipped {
+                    .inner-container {
+                        flex-direction: row-reverse;
+                        @media only screen and (max-width: 767px) {
+                            flex-direction: column;
+                        }
+                        .left-container {
+                        }
+                        .right-container {
+                            transform: translateX(-100%);
+                        }
+                    }
+                }
+            }
+            .swiper-pag {
+                margin-top: 50px;
+            }
+
+            &.animated {
+                .testimonial {
+                    .inner-container {
+                        .left-container {
+                            img {
+                                opacity: 1;
+                            }
+                        }
+                        .right-container {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
                     }
                 }
             }
         }
-        .swiper-pag {
-            margin-top: 50px;
-        }
-
     }
     
 }

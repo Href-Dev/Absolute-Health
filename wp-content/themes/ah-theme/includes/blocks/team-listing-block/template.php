@@ -18,6 +18,11 @@ $data = $args['data'];
 
 $heading = $data['heading'];
 
+// Default query configuration for the team listing block.
+$post_type      = 'team-member';
+$posts_per_page = 6;
+$paged          = 1;
+
 /**
  * Unique block identifier added to the block
  */
@@ -34,16 +39,15 @@ if ($block && $block_id && isset($block['ghostkit']['styles']) && $spacings = $b
     addGhostKitSpacings($spacings, $block_id);
 }
 
-
-
-$args = array(
-    'post_type' => 'team-member',
-    'posts_per_page' => -1,
-    'orderby' => 'date',
-    'order' => 'DESC',
+$team_members = new WP_Query(
+    array(
+        'post_type'      => $post_type,
+        'posts_per_page' => $posts_per_page,
+        'paged'          => $paged,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    )
 );
-
-$team_members = new WP_Query($args);
 
 ?>
 
@@ -59,10 +63,20 @@ $team_members = new WP_Query($args);
                     <?php echo $heading; ?>
                 </div>
             <?php endif; ?>
-            <div class="team-members">
-                <?php while ($team_members->have_posts()) : $team_members->the_post(); ?>
-                    <?php get_template_part('template-parts/cards/team', 'card', array('post_id'=>get_the_ID())); ?>
-                <?php endwhile; ?>
+            <div
+                class="team-members ajax-post-listing-container"
+                data-post-type="<?php echo esc_attr($post_type); ?>"
+                data-posts-per-page="<?php echo esc_attr($posts_per_page); ?>"
+                data-current-page="<?php echo esc_attr($paged); ?>"
+                data-max-pages="<?php echo esc_attr($team_members->max_num_pages); ?>"
+                data-template-base="<?php echo esc_attr('team'); ?>"
+                data-template-name="<?php echo esc_attr('card'); ?>"
+            >
+                <div class="post-listing-grid">
+                    <?php while ($team_members->have_posts()) : $team_members->the_post(); ?>
+                        <?php get_template_part('template-parts/cards/team', 'card', array('post_id'=>get_the_ID())); ?>
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </div>
             </div>
         </div>
     </section>

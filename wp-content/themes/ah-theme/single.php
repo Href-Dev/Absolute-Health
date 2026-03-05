@@ -4,6 +4,11 @@ $gradient_url = get_template_directory_uri() . '/assets/post-hero-background-img
 $background_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 $title = get_the_title();
 $categories = get_the_category();
+if (get_post_type() == 'post') :
+    $categories = get_the_category();
+else :
+    $categories = get_the_terms(get_the_ID(), 'case-study-category');
+endif;
 $category_list = '';
 if ($categories) {
     foreach ($categories as $category) {
@@ -37,16 +42,18 @@ if ($categories) {
                 </div>
             </div>
         </section>
-        <section class="post-content">
-            <div class="site-container flex items-center justify-between gap-10 flex-column md:flex-row pt-40 md:pt-65 lg:pt-90">
-                <p class="left-text">
-                    Article by: <strong><?php the_author(); ?></strong>
-                </p>
-                <p class="right-text">
-                    <?php echo get_the_date('F j, Y'); ?>
-                </p>
-            </div>
-        </section>
+        <?php if (get_post_type() == 'post') : ?>
+            <section class="post-content">
+                <div class="site-container flex items-center justify-between gap-10 flex-column md:flex-row pt-40 md:pt-65 lg:pt-90">
+                    <p class="left-text">
+                        Article by: <strong><?php the_author(); ?></strong>
+                    </p>
+                    <p class="right-text">
+                        <?php echo get_the_date('F j, Y'); ?>
+                    </p>
+                </div>
+            </section>
+        <?php endif; ?>
         <?php
         if (have_posts()) : while (have_posts()) : the_post();
                 the_content();
@@ -67,7 +74,11 @@ if ($categories) {
                 </span>
                 
                 <span class="middle-section">
-                    <?php echo acf_link(get_field('news_listing_page', 'option')); ?>
+                    <?php if (get_post_type() == 'post') : ?>
+                        <?php echo acf_link(get_field('news_listing_page', 'option')); ?>
+                    <?php else : ?>
+                        <?php echo acf_link(get_field('case_studies_listing_page', 'option')); ?>
+                    <?php endif; ?>
                 </span>
 
                 <span class="right-section">

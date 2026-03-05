@@ -19,3 +19,7 @@
         transform: translateY(-100px);
     }
 }
+
+.card--team[data-animate="fade-up"] {
+    transform: translateY(40px);
+}

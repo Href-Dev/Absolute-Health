@@ -121,7 +121,7 @@ if ($page_loader_fields) {
         <div class="site-container">
             <h2 class="text-container">
                 <?php if ($left_text_4) : ?>
-                    <span class="left-text h1 x-large">
+                    <span class="left-text h1 x-large mr-5">
                         <?php echo $left_text_4; ?>
                     </span>
                 <?php endif; ?>

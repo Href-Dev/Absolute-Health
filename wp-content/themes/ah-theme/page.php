@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-
+  -->
   <div class="cs-container hidden">
     <div class="site-container flex items-center justify-center">
       <div class="inner-container max-w-[1440px] grid gap-24">
@@ -34,6 +34,7 @@
       </div>
     </div>
   </div>
+  <!--
 
   <div class="cs-alt-container hidden">
     <div class="site-container flex items-center justify-center">

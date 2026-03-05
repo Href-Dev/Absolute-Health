@@ -249,6 +249,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                       spaceBetween: 20,
                     },
                     1025: {
+                      slidesPerView: 2,
                       spaceBetween: 80,
                     }
                   }
@@ -274,7 +275,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 opacity: 1,
                 duration: 1,
                 ease: 'power2.inOut',
-                delay: $this.data('delay') || 0,
+                delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
                   start: 'top bottom',
@@ -287,7 +288,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 x: 0,
                 duration: 1,
                 ease: 'power2.inOut',
-                delay: $this.data('delay') || 0,
+                delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
                   start: 'top bottom',
@@ -300,7 +301,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 x: 0,
                 duration: 1,
                 ease: 'power2.inOut',
-                delay: $this.data('delay') || 0,
+                delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
                   start: 'top bottom',
@@ -313,7 +314,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 y: 0,
                 duration: 1,
                 ease: 'power2.inOut',
-                delay: $this.data('delay') || 0,
+                delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
                   start: 'top bottom',
@@ -326,7 +327,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 y: 0,
                 duration: 1,
                 ease: 'power2.inOut',
-                delay: $this.data('delay') || 0,
+                delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
                   start: 'top bottom',
@@ -377,7 +378,6 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
             if ($overlay.length) {
               $overlay.css('height', contentHeight + 'px');
               $overlay.data('inactive-height', contentHeight + 'px');
-              $overlay.data('active-height', $card.outerHeight() + 'px');
             }
           });
         };
@@ -389,6 +389,12 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
           const $card = $(this);
           const $toggle = $card.find('[data-team-card-toggle]');
 
+          if ($card.data('team-card-init')) {
+            return;
+          }
+
+          $card.data('team-card-init', true);
+
           if (!$toggle.length) {
             return;
           }
@@ -397,10 +403,13 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
           $toggle.on('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
+            const $overlay = $card.find('.card-overlay');
             if(!$card.hasClass('is-active')) {
-              $card.find('.card-overlay').css('height', $card.find('.card-overlay').data('active-height'));
+              // Recalculate active height right before expanding, in case layout has changed
+              const activeHeight = $card.outerHeight();
+              $overlay.css('height', activeHeight + 'px');
             } else {
-              $card.find('.card-overlay').css('height', $card.find('.card-overlay').data('inactive-height'));
+              $overlay.css('height', $overlay.data('inactive-height'));
             }
             $card.toggleClass('is-active');
             $card.find('.subtext').stop().slideToggle();
@@ -408,6 +417,118 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
         });
       }
     }
+
+
+    const newsListingInfiniteScroll = () => {
+      const $containers = $('.ajax-post-listing-container');
+
+      if (!$containers.length) {
+        return;
+      }
+
+      const initContainer = ($container) => {
+        const $grid = $container.find('.post-listing-grid');
+
+        if (!$grid.length) {
+          return;
+        }
+
+        const postType = $container.data('post-type') || 'post';
+        const postsPerPage = parseInt($container.data('posts-per-page'), 10) || 6;
+        let currentPage = parseInt($container.data('current-page'), 10) || 1;
+        const maxPages = parseInt($container.data('max-pages'), 10) || 1;
+        const templateBase = $container.data('template-base') || 'news';
+        const templateName = $container.data('template-name') || 'card';
+
+        if (!window.ahAjax || !window.ahAjax.url || !window.ahAjax.nonce) {
+          return;
+        }
+
+        if (currentPage >= maxPages) {
+          return;
+        }
+
+        let isLoading = false;
+
+        const sentinel = document.createElement('div');
+        sentinel.className = 'ajax-listing-sentinel';
+        $container.append(sentinel);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              if (isLoading || currentPage >= maxPages) {
+                return;
+              }
+
+              isLoading = true;
+              currentPage += 1;
+
+              $.ajax({
+                url: window.ahAjax.url,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                  action: 'ah_load_more_posts',
+                  nonce: window.ahAjax.nonce,
+                  post_type: postType,
+                  posts_per_page: postsPerPage,
+                  page: currentPage,
+                  template_base: templateBase,
+                  template_name: templateName,
+                },
+                success: (response) => {
+                  if (response && response.success && response.data && response.data.html) {
+                    $grid.append(response.data.html);
+
+                    // Re-init GSAP animations for newly added elements.
+                    if (typeof animationsJS === 'function') {
+                      animationsJS();
+                    }
+                    // Re-init card behaviours (e.g. overlays) for newly added cards.
+                    if (typeof cardsJS === 'function') {
+                      cardsJS();
+                    }
+                    if (typeof ScrollTrigger !== 'undefined' && typeof ScrollTrigger.refresh === 'function') {
+                      ScrollTrigger.refresh();
+                    }
+
+                    const responseMaxPages = parseInt(response.data.max_pages || maxPages, 10);
+
+                    if (currentPage >= responseMaxPages) {
+                      observer.disconnect();
+                    }
+                  } else {
+                    observer.disconnect();
+                  }
+                },
+                error: () => {
+                  observer.disconnect();
+                },
+                complete: () => {
+                  isLoading = false;
+                },
+              });
+            });
+          },
+          {
+            root: null,
+            rootMargin: '0px 0px 200px 0px',
+            threshold: 0,
+          }
+        );
+
+        observer.observe(sentinel);
+      };
+
+      $containers.each(function () {
+        initContainer($(this));
+      });
+    };
 
 
 
@@ -454,7 +575,13 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
             scrub: true,
             onUpdate: self => {
               const scale = 1 + 0.15 * self.progress;
-              gsap.to($image, { scale: scale, overwrite: "auto", duration: 0.01 });
+              gsap.to($image, { 
+                scale: scale, 
+                filter: "greyscale(0)",
+                overwrite: "auto", 
+                duration: 0.01,
+                ease: "power2.inOut",
+              });
             }
           });
         }
@@ -477,10 +604,11 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
       smoothScrolling: smoothScrolling,
       headerJS: headerJS,
       accordionJS: accordionJS,
-      swiperFunctions: swiperFunctions,
+        swiperFunctions: swiperFunctions,
       cardsJS: cardsJS,
       heroBlockJS: heroBlockJS,
-      imageTextBlocksJS: imageTextBlocksJS,
+        imageTextBlocksJS: imageTextBlocksJS,
+        newsListingInfiniteScroll: newsListingInfiniteScroll,
       load: load
     };
 
@@ -500,10 +628,15 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
     Base.cardsJS();
     Base.heroBlockJS();
     Base.imageTextBlocksJS();
+    Base.newsListingInfiniteScroll();
   });
 
-  jQuery(window).on('load', function($) {
+  jQuery(window).on('load', function() {
     Base.load();
+    // Recalculate card overlay heights when the page has fully loaded (images, fonts, etc.)
+    if (typeof Base.cardsJS === 'function') {
+      Base.cardsJS();
+    }
   });
 
 })(window, document, jQuery);

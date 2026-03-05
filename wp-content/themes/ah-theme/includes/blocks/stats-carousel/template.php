@@ -49,7 +49,7 @@ if ($block && $block_id && isset($block['ghostkit']['styles']) && $spacings = $b
             </div>
         <?php endif; ?>
         <?php if ($stats) : ?>
-            <div class="carousel-container" data-animate>
+            <div class="carousel-container" data-animate="fade-in">
                 <div class="stats-carousel swiper" data-swiper-type='stats-carousel'>
                     <div class="swiper-wrapper">
                         <?php foreach ($stats as $stat) : ?>

@@ -44,14 +44,14 @@ if ($block && $block_id && isset($block['ghostkit']['styles']) && $spacings = $b
 >
     <div class="site-container">
         <?php if ($heading) : ?>
-            <div class="h2 heading-container">
+            <div class="h2 heading-container" data-animate="fade-in">
                 <?php echo $heading; ?>
             </div>
         <?php endif; ?>
         <?php if ($steps) : ?>
             <div class="steps-container">
-                <?php foreach ($steps as $step) : ?>
-                    <div class="single-step">
+                <?php foreach ($steps as $i => $step) : ?>
+                    <div class="single-step" data-animate="fade-up" data-delay="<?php echo $i * 0.1; ?>">
                         <?php if ($step['step_number_icon']) : ?>
                             <div class="step-icon">
                                 <?php echo acf_img($step['step_number_icon'], 'step-icon'); ?>

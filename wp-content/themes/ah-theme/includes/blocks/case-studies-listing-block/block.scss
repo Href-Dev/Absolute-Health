@@ -1,0 +1,49 @@
+.case-studies-listing-block {
+
+    padding: 144px 0;
+    @media only screen and (max-width: 1024px) {
+        padding: 102px 0;
+    }
+    @media only screen and (max-width: 767px) {
+        padding: 60px 0;
+    }
+    .site-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 90px;
+        @media only screen and (max-width: 1024px) {
+            gap: 50px;
+        }
+        @media only screen and (max-width: 767px) {
+            gap: 25px;
+        }
+        
+        .heading-container {
+            h2 {
+                font-size: 36px;
+                line-height: 48px;
+                font-weight: 300;
+                color: #05063E;
+            }
+        }
+        .post-listing-grid {
+            display: grid;
+            gap: 70px;
+            @media only screen and (max-width: 1024px) {
+                gap: 50px;
+            }
+            @media only screen and (max-width: 767px) {
+                gap: 20px;
+            }
+            @media only screen and (min-width: 768px) {
+                >* {
+                    &:nth-child(2n) {
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
+        }
+    }
+}
