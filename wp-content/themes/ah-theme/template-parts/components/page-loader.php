@@ -37,7 +37,7 @@ if ($page_loader_fields) {
 }
 ?>
 
-<div class="page-loader-container stage-13">
+<div class="page-loader-container stage-0">
     <?php if ($main_colours_background) : ?>
         <div class="background background--colours">
             <?php echo acf_img($main_colours_background, 'image image--colours') ?>

@@ -1,0 +1,124 @@
+{
+    "key": "group_69a040e4639cb",
+    "title": "News Post : Fields",
+    "fields": [
+        {
+            "key": "field_69a040e46b20f",
+            "label": "Card Fields",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "These fields are for the appearance of the cards for Case Studies throughout the site, both in the relationship block, as well as the listing page.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_69a040e46b264",
+            "label": "Background",
+            "name": "background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_69a038ad8b94b"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 1,
+            "prefix_name": 0,
+            "acfe_seamless_style": 0,
+            "acfe_clone_modal": 0,
+            "acfe_clone_modal_close": 0,
+            "acfe_clone_modal_button": "",
+            "acfe_clone_modal_size": "large"
+        },
+        {
+            "key": "field_69a040e46b2a4",
+            "label": "Subtext (Optional)",
+            "name": "subtext",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Shows the excerpt if left empty",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_69a040e46b2e3",
+            "label": "Image (Optional)",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Shows the featured image if left empty",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "array",
+            "library": "all",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1772110134
+}

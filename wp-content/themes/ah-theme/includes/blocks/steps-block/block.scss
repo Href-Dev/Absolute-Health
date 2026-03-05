@@ -1,0 +1,56 @@
+.steps-block {
+    padding: 140px 0;
+    @media only screen and (max-width: 1024px) {
+        padding: 100px 0;
+    }
+    @media only screen and (max-width: 767px) {
+        padding: 60px 0;
+    }
+    .site-container {
+        display: grid;
+        gap: 50px;
+        @media only screen and (max-width: 1024px) {
+            gap: 36px;
+        }
+        @media only screen and (max-width: 767px) {
+            gap: 24px;
+        }
+        .heading-container {
+
+        }
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            @media only screen and (max-width: 1024px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media only screen and (max-width: 1024px) {
+                grid-template-columns: 1fr;
+            }
+            .single-step {
+                display: flex;
+                flex-direction: column;
+                gap: 54px;
+                @media only screen and (max-width: 1024px) {
+                    gap: 36px;
+                }
+                @media only screen and (max-width: 767px) {
+                    gap: 24px;
+                    display: grid;
+                    grid-template-columns: 80px 1fr;
+                }
+                .step-icon {
+                    max-width: 150px;
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 1 / 1;
+                    object-fit: contain;
+                }
+                .subtext {
+
+                }
+            }
+        }
+    }
+}

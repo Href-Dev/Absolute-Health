@@ -1,99 +1,66 @@
 <?php
-$footer_logo = get_field('site_logo', 'option');
-$slogan = get_field('slogan', 'option');
+$email_address = get_field('email_address', 'option');
 $social_media = get_field('social_media', 'option');
-$newsletter_text = get_field('newsletter_text', 'option');
-$newsletter_form_id = get_field('newsletter_form', 'option');
+$slogan = get_field('slogan', 'option');
+$company_name = get_field('company_name', 'option');
+$address = get_field('address', 'option');
 $copyright_text = get_field('copyright_text', 'option');
-$designed_by = get_field('designed_by', 'option');
-
-$form = '[gravityform id="' . $newsletter_form_id . '" ajax="true" title="false" description="false"]';
 
 ?>
 <?php if (get_page_template_slug() !== 'page-page-loader-page.php') : ?>
-<footer class="site-footer bg-gray-100">
+<footer class="site-footer">
     <div class="site-container">
-        <div class="main-content flex flex-col md:flex-row flex-wrap lg:flex-nowrap justify-between py-40 md:py-64 md:gap-32">
-            <div class="left-column max-w-[300px] mb-40 md:mb-0">
-                <a class="site-logo" href="<?php echo home_url(); ?>">
-                    <?php if ($footer_logo): ?>
-                        <img class="" src="<?php echo $footer_logo['url']; ?>" alt="">
-                    <?php endif; ?>
-                </a>
-
-                <p class="text-sm !text-14 my-16"><?php echo $slogan; ?></p>
-
-                <?php if ($social_media): ?>
-                    <div class="right-container flex social-icons">
-                        <?php foreach ($social_media as $row): ?>
-                            <?php
-                            $image_url = $row['icon']['url'];
-                            if ($row['url'] && $image_url):
-                            ?>
-
-                                <a class="mr-16 last:mr-0" href="<?php echo esc_url($row['url']); ?>" target="_blank">
-                                    <div class="mask-icon w-24 h-24 bg-current" style="mask-image: url(<?php echo esc_url($image_url); ?>); -webkit-mask-image: url(<?php echo esc_url($image_url); ?>);"></div>
-                                </a>
-
-                        <?php endif;
-                        endforeach; ?>
-                    </div>
+        <?php if ($slogan) : ?>
+            <div class="top-container">
+                <p class="slogan h2">
+                    <?php echo $slogan; ?>
+                </p>
+            </div>
+        <?php endif; ?>
+        <div class="mid-container">
+            <div class="left-container">
+                <?php if ($email_address) : ?>
+                    <a class="email-address h3" href="mailto:<?php echo $email_address; ?>">
+                        <?php echo $email_address; ?>
+                    </a>
                 <?php endif; ?>
             </div>
-
-            <div class="footer-column-1 mb-40 md:mb-0">
-                <span class=" mb-16 block">Menu 1</span>
-                <nav class="site-footer__navigation site-footer__navigation--col-1 mt-24">
-                    <?php
-                    echo wp_nav_menu([
-                        'theme_location' => 'footer_col_1',
-                        'menu_class' => 'site-footer__menu grid text-sm gap-16',
-                        'container' => false
-                    ]);
-                    ?>
-                </nav>
-            </div>
-
-            <div class="footer-column-2 mb-40 md:mb-0">
-                <span class=" mb-16 block">Menu 1</span>
-                <nav class="site-footer__navigation site-footer__navigation--col-2 mt-24">
-                    <?php
-                    echo wp_nav_menu([
-                        'theme_location' => 'footer_col_2',
-                        'menu_class' => 'site-footer__menu grid text-sm gap-16',
-                        'container' => false
-                    ]);
-                    ?>
-                </nav>
-            </div>
-
-            <div class="newsletter-container sm:max-w-[300px]">
-                <span class="!text-16 mb-16">Newsletter</span>
-
-                <p class="text-14 mt-16 mb-24"><?php echo $newsletter_text; ?></p>
-
-                <div class="form-container">
-                    <?php echo do_shortcode($form); ?>
-                </div>
+            <div class="right-container">
+                <?php if ($company_name) : ?>
+                    <p class="company-name">
+                        <?php echo $company_name; ?>
+                    </p>
+                <?php endif; ?>
+                <?php if ($address) : ?>
+                    <p class="address">
+                        <?php echo $address; ?>
+                    </p>
+                <?php endif; ?>
+                <p class="copyright-text">
+                    © <?php echo get_bloginfo('name'); ?> <?php echo date('Y'); ?><?php if ($copyright_text) echo '  |  '. $copyright_text; ?>
+                </p>
             </div>
         </div>
-    </div>
-
-    <div class="bottom-container flex flex-row text-12">
-        <div class="site-container py-24 flex flex-col sm:flex-row items-center justify-between">
-            <span class="">@ <?php echo date('Y') . ' ' . $copyright_text; ?></span>
-
-            <nav class="site-footer__legal-wrapper">
-                <?php
-                echo wp_nav_menu([
-                    'theme_location' => 'legal_menu',
-                    'menu_class' => 'site-footer__legal-menu flex flex-row text-sm gap-16',
-                    'container' => false
-                ]);
-                ?>
-            </nav>
-
-            <span><?php echo $designed_by; ?></span>
+        <div class="bottom-container">
+            <?php if ($social_media) : ?>
+                <div class="social-media">
+                    <?php foreach ($social_media as $item) :
+                        $icon = $item['icon'];
+                        $url = $item['url'];
+                    ?>
+                        <a class="social-media-item-link" href="<?php echo $url; ?>">
+                            <?php echo acf_img($icon, 'icon'); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+            <?php
+            echo wp_nav_menu([
+                'theme_location' => 'legal_menu',
+                'menu_class' => 'site-footer__menu',
+                'container' => false
+            ]);
+            ?>
         </div>
     </div>
 </footer>

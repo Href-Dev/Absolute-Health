@@ -2,16 +2,33 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    @include fluid-type(18px, 20px, 500px, 1440px);
+    @include fluid-type(18px, 20px, 500px, 1920px);
     font-weight: 300;
+    color: #05063E;
 }
 
 // Typography GLOBALS - END
 
 
-.subtext{
+.subtext {
+    display: grid;
+    gap: 20px;
+}
+
+.subtext, p{
     line-height: 1.5;
-    @include fluid-type(16px, 20px, 900px, 1440px);
+    @include fluid-type(16px, 20px, 900px, 1920px);
+
+    &.sm {
+        @include fluid-type(14px, 18px, 500px, 900px);
+    }
+
+    >* {
+        &:empty {
+            display: none;
+            margin-bottom: 0 !important;
+        }
+    }
 
     p, p a:not(.btn), li, td{
         font-size: inherit;
@@ -20,19 +37,22 @@ body {
             font-size: 1.1em;
         }
     }
+    b, strong {
+        font-weight: 700;
+        font-size: 1.1em;
+    }
 
     a:not(.btn) {
         font-size: inherit;
         text-decoration: underline;
         text-underline-offset: 3px;
         width: fit-content;
-        // color: #0d00ff;
         font-weight: 400;
-        background-image: linear-gradient(transparent, transparent),
-            linear-gradient(currentColor, currentColor);
         background-size: 100% 2px, 0 2px;
         background-position: 100% 100%, 0 100%;
         background-repeat: no-repeat;
+        background-image: linear-gradient(transparent, transparent),
+            linear-gradient(currentColor, currentColor);
         transition: background-size .8s ease;
         
         &:hover{
@@ -41,7 +61,6 @@ body {
     }
 
     > h1, > h2, > h3, > h4, > h5, > h6{
-        margin-bottom: 24px;
 
         &:not(:first-child){
 
@@ -50,7 +69,6 @@ body {
 
     p{
         &:not(:last-child){
-            margin-bottom: 1.5em;
         }
     }
 
@@ -144,6 +162,21 @@ body {
           background-color: #f9f9f9;
         }
     }
+    br {
+        display: block;
+    }
+}
+
+em, i {
+    font-family: "Roboto Serif", serif;
+    strong {
+        font-weight: 500;
+    }
+}
+strong {
+    em {
+        font-weight: 500;
+    }
 }
 
 
@@ -153,24 +186,27 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
         font-weight: 500;
         font-family: "Roboto Serif", serif;
     }
+    p {
+        font-size: inherit;
+    }
 }
 
-h1, .h1, .gform_title{
-    @include fluid-type(28px, 50px, 500px, 1440px);
+h1, .h1, .gform_title, .site-header__menu>*{
+    @include fluid-type(28px, 50px, 500px, 1920px);
     &.large {
-        @include fluid-type(40px, 60px, 500px, 1440px);
+        @include fluid-type(40px, 60px, 500px, 1920px);
     }
     &.x-large {
-        @include fluid-type(45px, 72px, 500px, 1440px);
+        @include fluid-type(45px, 72px, 500px, 1920px);
     }
 }
 
 h2, .h2, .quote-text{
-    @include fluid-type(24px, 38px, 500px, 1440px);
+    @include fluid-type(24px, 38px, 500px, 1920px);
 }
 
-h3, .h3{
-    @include fluid-type(22px, 34px, 500px, 1440px);
+h3, .h3, .sub-menu .menu-item{
+    @include fluid-type(22px, 34px, 500px, 1920px);
     line-height: 1.23;
     b, strong, i, em {
         font-weight: 300;
@@ -178,21 +214,20 @@ h3, .h3{
 }
 
 h4, .h4{
-    @include fluid-type(19px, 28px, 500px, 1440px);
+    @include fluid-type(19px, 28px, 500px, 1920px);
 }
 
 h5, .h5{
-    @include fluid-type(17px, 20px, 500px, 1440px);
+    @include fluid-type(17px, 20px, 500px, 1920px);
 }
 
 h6, .h6{
-    @include fluid-type(16px, 18px, 500px, 1440px);
+    @include fluid-type(16px, 18px, 500px, 1920px);
 }
 
 .stats-text {
-    @include fluid-type(50px, 112px, 500px, 1440px);
+    @include fluid-type(50px, 112px, 500px, 1920px);
     font-weight: 700;
-
 }
 
 

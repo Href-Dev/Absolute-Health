@@ -157,6 +157,38 @@
             ]
         },
         {
+            "key": "field_69a861d1af028",
+            "label": "News Listing Page",
+            "name": "news_listing_page",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_69a861e7af029",
+            "label": "Case Studies Listing Page",
+            "name": "case_studies_listing_page",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_6738cdb465497",
             "label": "Header",
             "name": "",
@@ -236,136 +268,9 @@
             "delay": 0
         },
         {
-            "key": "field_6737ea3ac0b01",
-            "label": "Partner Logos",
-            "name": "partner_logos",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "acfe_repeater_stylised_button": 0,
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_6737ea42c0b02",
-                    "label": "Logo",
-                    "name": "logo",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "uploader": "",
-                    "return_format": "array",
-                    "library": "all",
-                    "acfe_thumbnail": 0,
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "preview_size": "medium",
-                    "parent_repeater": "field_6737ea3ac0b01"
-                },
-                {
-                    "key": "field_6737ea52c0b03",
-                    "label": "Link",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "parent_repeater": "field_6737ea3ac0b01"
-                }
-            ]
-        },
-        {
-            "key": "field_6738cfce6cf6f",
-            "label": "Newsletter Text",
-            "name": "newsletter_text",
-            "aria-label": "",
-            "type": "medium_editor",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "standard_buttons": [
-                "bold",
-                "italic",
-                "underline",
-                "removeFormat"
-            ],
-            "other_options": [
-                "disableReturn",
-                "disableDoubleReturn",
-                "disableExtraSpaces"
-            ],
-            "delay": 0
-        },
-        {
-            "key": "field_6738cdc365498",
-            "label": "Newsletter Form",
-            "name": "newsletter_form",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "": "No Form"
-            },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_6738e80c869d6",
-            "label": "Copyright Text",
-            "name": "copyright_text",
+            "key": "field_69a8438a390a7",
+            "label": "Company Name",
+            "name": "company_name",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -383,11 +288,11 @@
             "append": ""
         },
         {
-            "key": "field_6737ea15c0b00",
-            "label": "Designed By",
-            "name": "designed_by",
+            "key": "field_69a8437c390a6",
+            "label": "Address",
+            "name": "address",
             "aria-label": "",
-            "type": "medium_editor",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -397,43 +302,15 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
-            "standard_buttons": [
-                "bold",
-                "italic",
-                "underline",
-                "anchor",
-                "removeFormat"
-            ],
-            "other_options": [
-                "disableReturn",
-                "disableDoubleReturn",
-                "disableExtraSpaces",
-                "targetBlank"
-            ],
-            "delay": 0
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_673a690eaa218",
-            "label": "News",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_673a6913aa219",
-            "label": "Post Filter shortcode",
-            "name": "post_filters",
+            "key": "field_6738e80c869d6",
+            "label": "Copyright Text",
+            "name": "copyright_text",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -1075,5 +952,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1772098491
+    "modified": 1772642824
 }

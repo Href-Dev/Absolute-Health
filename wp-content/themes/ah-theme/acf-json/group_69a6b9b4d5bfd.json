@@ -1,0 +1,66 @@
+{
+    "key": "group_69a6b9b4d5bfd",
+    "title": "Component : Heading",
+    "fields": [
+        {
+            "key": "field_69a6b9b6574d0",
+            "label": "Heading",
+            "name": "heading",
+            "aria-label": "",
+            "type": "medium_editor",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "standard_buttons": [
+                "bold",
+                "italic",
+                "underline",
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "h6",
+                "removeFormat"
+            ],
+            "other_options": [
+                "disableDoubleReturn",
+                "disableExtraSpaces"
+            ],
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1772534254
+}

@@ -1,0 +1,25 @@
+.media-block {
+    position: relative;
+    .site-container {
+        position: relative;
+        z-index: 10;
+        max-width: 1180px;
+        padding: 140px 0;
+        @media only screen and (max-width: 1024px) {
+            padding: 100px 0;
+        }
+        .main-image {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 5;
+    }
+}

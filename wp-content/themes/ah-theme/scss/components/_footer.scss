@@ -1,5 +1,122 @@
 .site-footer {
+    background-color: #4A3670;
+    .site-container {
+        color: #fff;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 160px 0;
+        @media only screen and (max-width: 1024px) {
+            padding: 120px 0;
+        }
+        @media only screen and (max-width: 767px) {
+            padding: 80px 0;
+            gap: 60px;
+        }
+        .top-container {
+            .slogan {
+                @media only screen and (max-width: 767px) {
+                    text-align: center;
+                }
+                
+            }
+        }
+        .mid-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+            @media only screen and (max-width: 767px) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 20px;
+            }
+            .left-container {
+                .email-address {
+                    font-weight: 500;
+                    font-style: italic;
+                    font-size: inherit;
+                    text-decoration: none;
+                    text-underline-offset: 3px;
+                    width: fit-content;
+                    background-size: 100% 0.1em, 0 0.1em;
+                    background-position: 100% 100%, 0 100%;
+                    background-repeat: no-repeat;
+                    background-image: linear-gradient(transparent, transparent),
+                        linear-gradient(currentColor, currentColor);
+                    transition: background-size .8s ease;
+                    
+                    &:hover{
+                        background-size: 0 0.1em, 100% 0.1em;
+                    }
 
+                }
+            }
+            .right-container {
+                text-align: right;
+                @media only screen and (max-width: 767px) {
+                    text-align: center;
+                }
+                .company-name {
+                    font-weight: 500;
+                }
+            }
+        }
+        .bottom-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            @media only screen and (max-width: 767px) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            gap: 40px;
+            .social-media {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 20px;
+                flex-grow: 1;
+            }
+            .site-footer__menu {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                flex-grow: 1;
+                @media only screen and (max-width: 767px) {
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                }
+                .menu-item {
+                    // margin-left: auto;
+                    a {
+                        text-decoration: none;
+                        width: fit-content;
+                        background-size: 100% 0.1em, 0 0.1em;
+                        background-position: 100% 100%, 0 100%;
+                        background-repeat: no-repeat;
+                        background-image: linear-gradient(transparent, transparent),
+                            linear-gradient(currentColor, currentColor);
+                        transition: background-size .8s ease;
+                        @media only screen and (max-width: 1024px) {
+                            font-size: 14px;
+                        }
+                        
+                        &:hover{
+                            background-size: 0 0.1em, 100% 0.1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .mask-icon {
@@ -7,3 +124,4 @@
     mask-position: center;
     mask-repeat: no-repeat;
 }
+

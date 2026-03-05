@@ -30,66 +30,35 @@ function runWhenjQueryReady() {
 
                 const $pageLoaderContainer = $('.page-loader-container');
                 if ($pageLoaderContainer.length) {
-                    //   const totalStages = 16;
+                    const stageDelaysMs = [
+                        1000, // stage 1
+                        1000, // stage 2
+                        1000, // stage 3
+                        1500, // stage 4
+                        3000, // stage 5
+                        4000, // stage 6
+                        3000, // stage 7
+                        1500, // stage 8
+                        1000, // stage 9
+                        1800, // stage 10
+                        1800, // stage 11
+                        2000, // stage 12
+                        1500, // stage 13
+                        1000, // stage 14
+                        1000, // stage 15
+                        1000, // stage 16
+                        1000, // stage 17
+                    ];
 
-                    //   // Disable user scroll on this page (lock stays for the whole page)
-                    //   $('body').addClass('page-loader-scroll-lock');
-
-                    //   // Optional: block wheel/touch/keyboard scroll as extra guard
-                    //   const preventScroll = (e) => e.preventDefault();
-                    //   document.addEventListener('wheel', preventScroll, { passive: false });
-                    //   document.addEventListener('touchmove', preventScroll, { passive: false });
-
-                    //   /**
-                    //    * Delay (ms) before advancing to each stage. Index 0 = initial (stage 0), then delay before stage 1, then before stage 2, etc.
-                    //    * Adjust these to control exactly when each swap happens.
-                    //    */
-                    //   const stageDelaysMs = [
-                    //     0,     
-                    //     1000,
-                    //     5000,
-                    //     150000,
-                    //     200000,
-                    //     200000,
-                    //     150000,
-                    //     150000,
-                    //     200000,
-                    //     200000,
-                    //     150000,
-                    //     150000,
-                    //     200000,
-                    //     200000,
-                    //     150000,
-                    //     150000,
-                    //   ];
-
-                    //   function setStage(stage) {
-                    //     const s = Math.min(stage, totalStages - 1);
-                    //     for (let i = 0; i < totalStages; i++) {
-                    //       $pageLoaderContainer.removeClass("stage-" + i);
-                    //     }
-                    //     $pageLoaderContainer.addClass("stage-" + s);
-                    //   }
-
-                    //   // Schedule each stage from delays (no loop – explicit timeouts for full control)
-                    //   let elapsed = 0;
-                    //   for (let i = 0; i < totalStages; i++) {
-                    //     elapsed += stageDelaysMs[i];
-                    //     ((stage) => {
-                    //       setTimeout(() => setStage(stage), elapsed);
-                    //     })(i);
-                    //   }
-
-                    //   setStage(0);
-                    let clickCount = 13;
-                    $(document).on('click', 'body', function () {
-                        if (clickCount != 0) {
-                            $('.page-loader-container').removeClass('stage-' + (clickCount - 1));
-                        }
-                        $('.page-loader-container').addClass('stage-' + clickCount);
-                        clickCount++;
-                    })
-
+                    let totalDelay = 0;
+                    stageDelaysMs.forEach((delay, index) => {
+                        totalDelay += delay;
+                        setTimeout(() => {
+                            $('.page-loader-container').removeClass('stage-' + index);
+                            $('.page-loader-container').addClass('stage-' + (index + 1));
+                        }, totalDelay);
+                        console.log(totalDelay);
+                    });
 
                     const LinkEl = $('.page-loader .link-el');
                     LinkEl.each(function () {

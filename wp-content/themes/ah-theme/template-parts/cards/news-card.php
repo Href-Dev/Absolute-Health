@@ -4,32 +4,27 @@
  * Controls the cards for the case study card
  */
 $post_id = $args['post_id'] ?? "";
-
+$image_url = get_field('image', $post_id)['url'] ?? get_the_post_thumbnail_url($post_id);
+$title = get_the_title($post_id);
+$categories = get_the_category($post_id);
+$permalink = get_the_permalink($post_id);
+$background_colour = get_field('colour', $post_id);
+$category = null;
+if (is_array($categories) && count($categories) > 0) {
+    $category = $categories[0]->name;
+}
 ?>
-
-<a href="<?php echo get_the_permalink($post_id); ?>" class="single-case-study cursor-pointer flex flex-col image-zoom" data-aos="fade-up">
-    <div class="inner-container">
-        <div class="image-container relative w-full h-auto aspect-[8/5] max-h-[432px] rounded-lg mb-16 lg:mb-24">
-            <img class="absolute w-full h-full" src="<?php echo get_the_post_thumbnail_url($post_id); ?>" alt="">
-        </div>
-
-        <div class="heading-container flex flex-row">
-            <span class="h5"><?php echo get_the_title($post_id); ?></span>
-        </div>
-
-        <div class="copy sm mt-12 line-clamp-3">
-            <p><?php echo get_the_excerpt($post_id); ?></p>
-        </div>
-
-        <div class="categories text-12 mt-8 lg:mt-16 flex flex-row flex-wrap items-center -m-8">
-            <?php
-            $terms = get_the_category($post_id);
-
-            if (!empty($terms) && !is_wp_error($terms)) :
-                foreach ($terms as $term) : ?>
-                    <span class="badge font-medium px-8 py-2 text-white leading-[22px] bg-gray-700 m-8"><?php echo $term->name; ?></span>
-                <?php endforeach;
-            endif; ?>
-        </div>
+<div class="card card--news" data-animate="fade-up">
+    <a href="<?php echo $permalink; ?>" class="image-container">
+        <img class="image" src="<?php echo $image_url; ?>" alt="<?php echo $title; ?>">
+    </a>
+    <div class="text-container <?php echo $background_colour; ?>-bg">
+        <?php if ($category) : ?>
+            <p class="category">
+                <strong><em><?php echo $category; ?></em></strong>
+            </p>
+        <?php endif; ?>
+        <h4 class="h4 title"><?php echo $title; ?></h4>
+        <a href="<?php echo $permalink; ?>" class="btn btn--dark">Read More</a>
     </div>
-</a>
+</div>

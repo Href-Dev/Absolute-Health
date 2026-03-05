@@ -1,0 +1,92 @@
+.image-text-block {
+    overflow: hidden;
+
+    .site-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vw;
+        @media only screen and (max-width: 767px) {
+            flex-direction: column-reverse;
+            min-height: unset;
+        }
+        .image-container {
+            width: 50%;
+            position: relative;
+            height: auto;
+            align-self: stretch;
+            @media only screen and (max-width: 767px) {
+                position: relative;
+                left: 50% !important;
+                right: unset !important;
+                top: unset !important;
+                bottom: unset !important;
+                transform: translateX(-50%) !important;
+                width: 100vw;
+                height: 100vw;
+            }
+            img {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                z-index: 1;
+                min-width: 50vw;
+                min-height: 50vw;
+                height: 100%;
+                object-fit: cover;
+                transform-origin: right center;
+                @media only screen and (max-width: 767px) {
+                    position: relative;
+                    left: 50% !important;
+                    right: unset !important;
+                    top: unset !important;
+                    bottom: unset !important;
+                    transform: translateX(-50%) !important;
+                    width: 100vw;
+                    height: 100vw;
+                }
+            }
+        }
+        .text-container {
+            width: 50%;
+            position: relative;
+            padding-left: 40px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            @media only screen and (max-width: 767px) {
+                width: 100%;
+                padding: 40px 0 !important;
+            }
+            >* {
+                width: 100%;
+                max-width: 580px;
+            }
+            .heading-container {
+                margin-bottom: 36px;
+                @media only screen and (max-width: 767px) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        &.flipped-layout {
+            flex-direction: row-reverse;
+            @media only screen and (max-width: 767px) {
+                flex-direction: column-reverse;
+                min-height: unset;
+            }
+            .image-container {
+                img {
+                    right: unset;
+                    left: 0;
+                    transform-origin: left center;
+                }
+            }
+            .text-container {
+                padding-left: unset;
+                padding-right: 40px;
+            }
+        }
+    }
+    
+}

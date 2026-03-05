@@ -1,0 +1,70 @@
+.single-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    @media only screen and (max-width: 767px) {
+        gap: 8px;
+        padding: 28px 10px;
+    }
+    .stat-number {
+        display: flex;
+        align-items: flex-start;
+        font-weight: 400;
+        * {
+            line-height: 1em !important;
+            font-weight: 400;
+            font-size: inherit;
+        }
+        color: #4A3670;
+        .number {
+            height: 1em;
+            line-height: 1;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+            .digit {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                transition: transform 1s ease-in-out;
+                letter-spacing: -0.01em;
+                font-weight: 700;
+            }
+            .digit-part {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                letter-spacing: -0.01em;
+                font-weight: 700;
+
+            }
+        }
+    }
+    .suffix {
+        letter-spacing: -0.01em;
+        font-weight: 700;
+        
+    }
+    .stat-subtext {
+        max-width: 304px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}
+
+.animated {
+    .single-stat {
+        .stat-number {
+            .number {
+                .digit {
+                    transform: translateY(calc(-100% + 1em));
+                }
+            }
+        }
+    }
+}

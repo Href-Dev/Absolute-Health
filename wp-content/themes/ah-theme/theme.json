@@ -10,19 +10,45 @@
             "defaultPalette": false,
             "palette": [
                 {
-                    "name": "Primary",
-                    "slug": "primary",
-                    "color": "#007bff"
-                },
-                {
-                    "name": "Secondary",
-                    "slug": "secondary",
-                    "color": "#000000"
-                },
-                {
                     "name": "White",
                     "slug": "white",
-                    "color": "#FFFFFF"
+                    "color": "#FFFFFF",
+                    "default": "true"
+                },
+                {
+                    "name": "Dark Blue",
+                    "slug": "dark-blue",
+                    "color": "#05063E"
+                },
+                {
+                    "name": "Cream",
+                    "slug": "cream",
+                    "color": "#F0E3DB"
+                },
+                {
+                    "name": "Light Grey",
+                    "slug": "light-grey",
+                    "color": "#F2F2F2"
+                },
+                {
+                    "name": "Teal",
+                    "slug": "teal",
+                    "color": "#58DED2"
+                },
+                {
+                    "name": "Orange",
+                    "slug": "orange",
+                    "color": "#FF6B38"
+                },
+                {
+                    "name": "Light Purple",
+                    "slug": "light-purple",
+                    "color": "#4A3670"
+                },
+                {
+                    "name": "Dark Purple",
+                    "slug": "dark-purple",
+                    "color": "#360D4D"
                 }
             ]
         }

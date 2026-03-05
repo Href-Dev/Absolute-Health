@@ -126,8 +126,8 @@ body.page-loader-scroll-lock {
             left: 50%;
             top: 50%;
             transform-origin: center;
-            width: 300px;
-            height: 60px;
+            width: 400px;
+            height: 90px;
             border: solid 1px #fff;
             transform-origin: center;
             border-radius: 500px;
@@ -141,19 +141,19 @@ body.page-loader-scroll-lock {
                 display: block;
                 position: absolute;
                 transform: translate(-50%, -50%);
-                width: 10px;
-                height: 10px;
-                border-radius: 5px;
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
                 background-color: #fff;
-                top: 30px;
+                top: 45px;
                 opacity: 0;
                 transition: all .5s cubic-bezier(.59,.54,.4,.78);
             }
             &:before {
-                left: 30px;
+                left: 45px;
             }
             &:after {
-                left: calc(100% - 30px);
+                left: calc(100% - 45px);
             }
         }
         .link-el {
@@ -352,72 +352,67 @@ body.page-loader-scroll-lock {
 
 
 
-    &.stage-1 {
+    // Shared stage states
+    &.stage-1,
+    &.stage-2,
+    &.stage-3,
+    &.stage-4 {
         .dots-container {
             transform: translate(-50%, -50%) scale(1) rotate(0deg);
             opacity: 1;
         }
     }
-    &.stage-2 {
-        .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
-            opacity: 1;
-        }
+    &.stage-2,
+    &.stage-3,
+    &.stage-4,
+    &.stage-5,
+    &.stage-6,
+    &.stage-11,
+    &.stage-12,
+    &.stage-13,
+    &.stage-14 {
         .dot.dot-top {
             width: 186px;
         }
     }
-    &.stage-3 {
-        .background--spiral {
-            opacity: 0.12;
-        }
-        .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
-            opacity: 1;
-        }
-        .dot.dot-top {
-            width: 186px;
-        }
-    }
+    &.stage-3,
     &.stage-4 {
         .background--spiral {
             opacity: 0.12;
         }
-        .stage-4 .site-container .text-container .heading {
-            opacity: 1;
-            transform: translateY(0);
+    }
+
+    &.stage-4 {
+        .stage-4 .site-container .text-container {
+            .heading,
+            .subtext {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .stage-4 .site-container .text-container .subtext {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    }
+
+    &.stage-5,
+    &.stage-6 {
         .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            transform: translate(-50%, -50%) scale(1) rotate(-180deg);
             opacity: 1;
-        }
-        .dot.dot-top {
-            width: 186px;
         }
     }
     &.stage-5 {
         .background--petals {
             opacity: 0.32;
         }
-        .stage-4 .site-container .text-container .heading,
-        .stage-4 .site-container .text-container .subtext {
-            opacity: 0;
-            transform: translateY(0);
+        .stage-4 .site-container .text-container {
+            .heading,
+            .subtext {
+                opacity: 0;
+                transform: translateY(0);
+            }
         }
         .stage-5 .site-container .text-container .subtext {
             opacity: 1;
             transform: translateY(0);
-        }
-        .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(-180deg);
-            opacity: 1;
-        }
-        .dot.dot-top {
-            width: 186px;
         }
     }
     &.stage-6 {
@@ -431,10 +426,7 @@ body.page-loader-scroll-lock {
             transition-delay: 0.4s;
         }
         .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(-180deg);
-        }
-        .dot.dot-top {
-            width: 186px;
+            opacity: 0;
         }
     }
     &.stage-7 {
@@ -486,6 +478,22 @@ body.page-loader-scroll-lock {
             transform: translateY(0) translateX(50%) rotate(0deg);
         }
     }
+    // Shared dot/line states for late stages
+    &.stage-11,
+    &.stage-12,
+    &.stage-13,
+    &.stage-14 {
+        .dots-container {
+            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            z-index: 100;
+            .dot {
+                border: solid 1px #fff;
+            }
+            .dot.dot-right {
+                display: none;
+            }
+        }
+    }
     &.stage-11 {
         .stage-7 .site-container .image-container.image-top,
         .stage-7 .site-container .image-container.image-bottom {
@@ -501,18 +509,7 @@ body.page-loader-scroll-lock {
             transform: translateY(0) translateX(50%) rotate(0deg);
         }
         .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
             opacity: 0;
-            z-index: 100;
-            .dot {
-                border: solid 1px #fff;
-            }
-            .dot.dot-top {
-                width: 186px;
-            }
-            .dot.dot-right {
-                display: none;
-            }
         }
     }
     &.stage-12 {
@@ -525,90 +522,40 @@ body.page-loader-scroll-lock {
             transform: translateY(0) translateX(50%) rotate(0deg);
         }
         .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
             opacity: 1;
-            z-index: 100;
-            .dot {
-                border: solid 1px #fff;
-            }
-            .dot.dot-top {
-                width: 186px;
-            }
-            .dot.dot-right {
-                display: none;
-            }
         }
     }
     &.stage-13 {
         .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
             opacity: 1;
-            z-index: 100;
             .dot {
-                border: solid 1px #fff;
                 background-color: transparent;
-            }
-            .dot.dot-top {
-                width: 186px;
-            }
-            .dot.dot-right {
-                display: none;
             }
         }
     }
     &.stage-14 {
         .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
             opacity: 1;
-            z-index: 100;
             .dot {
-                border: solid 1px #fff;
                 background-color: transparent;
             }
             .dot.dot-top {
-                width: 186px;
                 &:before, &:after {
-                    top: 20px;
+                    top: 45px;
                 }
                 &:before {
-                    left: 20px;
+                    left: 45px;
                 }
                 &:after {
-                    left: calc(100% - 20px);
+                    left: calc(100% - 45px);
                 }
             }
             .dot.dot-left {
                 opacity: 0;
             }
-            .dot.dot-right {
-                display: none;
-            }
         }
     }
-    &.stage-15 {
-        .dots-container {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
-            opacity: 1;
-            z-index: 100;
-            .dot.dot-top {
-                width: 300px;
-                height: 60px;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%) rotate(45deg);
-                transform-origin: center;
-                &:before, &:after {
-                    opacity: 1;
-                }
-            }
-            .dot.dot-left {
-                opacity: 0;
-            }
-            .dot.dot-right {
-                display: none;
-            }
-        }
-    }
+
     &.stage-15,
     &.stage-16,
     &.stage-17 {
@@ -616,8 +563,8 @@ body.page-loader-scroll-lock {
             z-index: 100;
         }
         .dots-container {
-            width: 250px;
-            height: 250px;
+            width: 330px;
+            height: 330px;
             transform: translate(-50%, -50%) scale(1) rotate(0deg);
             opacity: 1;
             z-index: 100;
@@ -625,13 +572,9 @@ body.page-loader-scroll-lock {
                 border: solid 1px #fff;
                 background-color: transparent;
             }
-        }
-    }
-    &.stage-16 {
-        .dots-container {
             .dot.dot-top {
-                width: 300px;
-                height: 60px;
+                width: 400px;
+                height: 90px;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%) rotate(45deg);
@@ -646,6 +589,10 @@ body.page-loader-scroll-lock {
             .dot.dot-right {
                 display: none;
             }
+        }
+    }
+    &.stage-16 {
+        .dots-container {
             .line {
                 opacity: 1;
                 transform: translate(-50%, -50%) rotate(-45deg);
@@ -657,23 +604,6 @@ body.page-loader-scroll-lock {
     }
     &.stage-17 {
         .dots-container {
-            .dot.dot-top {
-                width: 300px;
-                height: 60px;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%) rotate(45deg);
-                transform-origin: center;
-                &:before, &:after {
-                    opacity: 1;
-                }
-            }
-            .dot.dot-left {
-                opacity: 0;
-            }
-            .dot.dot-right {
-                display: none;
-            }
             .line {
                 opacity: 1;
                 transform: translate(-50%, -50%) rotate(-45deg);

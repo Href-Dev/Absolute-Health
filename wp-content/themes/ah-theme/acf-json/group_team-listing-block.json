@@ -1,0 +1,77 @@
+{
+    "key": "group_team-listing-block",
+    "title": "Block : Team Listing Block",
+    "fields": [
+        {
+            "key": "field_69a826cd7ce19",
+            "label": "Heading",
+            "name": "",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_69a6b9b6574d0"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0,
+            "acfe_seamless_style": 0,
+            "acfe_clone_modal": 0,
+            "acfe_clone_modal_close": 0,
+            "acfe_clone_modal_button": "",
+            "acfe_clone_modal_size": "large"
+        },
+        {
+            "key": "field_69a826e4ae71a",
+            "label": "Info",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "This block will show all team member posts in a grid for desktop, stacking on mobile.",
+            "new_lines": "",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/team-listing-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1772627768
+}

@@ -1,0 +1,24 @@
+.two-column-text-block {
+    padding: 125px 0;
+    @media only screen and (max-width: 1024px) {
+        padding: 90px 0;
+    }
+    @media only screen and (max-width: 767px) {
+        padding: 60px 0;
+    }
+    .site-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 88px;
+        @media only screen and (max-width: 1024px) {
+            gap: 50px;
+        }
+        @media only screen and (max-width: 767px) {
+            gap: 20px;
+            grid-template-columns: 1fr;
+        }
+        .subtext {
+            height: fit-content;
+        }
+    }
+}

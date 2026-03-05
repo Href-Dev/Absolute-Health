@@ -1,0 +1,9 @@
+.single-column-text-block {
+    padding: 90px 0;
+    @media only screen and (max-width: 1024px) {
+        padding: 65px 0;
+    }
+    @media only screen and (max-width: 767px) {
+        padding: 50px 0;
+    }
+}

@@ -1,15 +1,28 @@
 .swiper-nav {
-    margin-top: 24px;
+
     .swiper-btn {
-        width: 40px;
-        height: 40px;
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        height: 66px;
+        width: 41px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        border-radius: unset;
         transition: all 0.5s ease;
-        background-color: #aaaaff;
-        border-radius: 50%;
+        &:hover {
+            opacity: 0.5;
+        }
+        &.swiper-btn-prev {
+            left: 0;
+        }
+        &.swiper-btn-next {
+            right: 0;
+        }
     }
 }
 .swiper-pag {
@@ -21,17 +34,16 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 24px;
     .swiper-pagination-bullet {
-        background-color: #aaaaaa;
+        background-color: #E0D9CF;
         opacity: 1;
-        width: 16px;
-        height: 16px;
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
         margin: 0 !important;
         transition: all 0.5s ease;
         &.swiper-pagination-bullet-active {
-            background-color: #aaaaff;
+            background-color: #121C63;
         }
     }
 }

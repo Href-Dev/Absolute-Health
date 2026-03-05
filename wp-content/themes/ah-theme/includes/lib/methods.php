@@ -39,10 +39,9 @@ function wysiwyg_add_formats_select($buttons) {
 function wysiwyg_custom_formats($formats) {
   $custom_formats = [
     [
-      'title' => 'Small',
-      'block' => 'small',
-      'classes' => '',
-      'wrapper' => true
+      'title' => 'Large Text',
+      'selector' => 'p',
+      'classes' => 'lg'
     ]
   ];
 

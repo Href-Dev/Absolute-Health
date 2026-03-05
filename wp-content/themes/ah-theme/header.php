@@ -30,53 +30,30 @@ $social_media = get_field('social_media', 'option');
     <?php wp_body_open(); ?>
 
     <?php if (get_page_template_slug() !== 'page-page-loader-page.php') : ?>
-        <header class="site-header w-screen h-auto left-0 z-[99999] sticky top-0">
-            <div class="main-menu-outer-container w-full bg-gray-100">
-                <div class="site-container relative z-[99999] py-20">
-                    <div class="flex flex-row justify-between items-center">
-                        <a class="site-logo" href="<?php echo home_url(); ?>">
-                            <?php if ($site_logo): ?>
-                                <img class=" h-auto" src="<?php echo $site_logo['url']; ?>" alt="">
-                            <?php endif; ?>
-                        </a>
-
-                        <div class="menu-container hidden lg:flex flex-row items-center mr-auto ml-32">
-                            <?php
-                            echo wp_nav_menu([
-                                'theme_location' => 'header',
-                                'menu_class' => 'site-header__menu flex flex-row ',
-                                'container' => false,
-                            ]);
-                            ?>
+        <header class="site-header w-screen z-[99999] sticky top-0">
+            <div class="main-container">
+                <div class="site-container flex justify-between items-center">
+                    <a class="site-logo" href="<?php echo home_url(); ?>">
+                        <?php if ($site_logo): ?>
+                            <img class=" h-auto" src="<?php echo $site_logo['url']; ?>" alt="">
+                        <?php endif; ?>
+                    </a>
+                    <button class="burger-icon">
+                        <div class="inner-icon">
                         </div>
-
-                        <?php if ($header_cta):
-                            echo acf_link($header_cta, 'btn !hidden lg:!flex');
-                        endif; ?>
-
-                        <div class="hamburger lg:!hidden">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
+                    </button>
                 </div>
-            </div>
-
-            <div class="mobile-menu fixed top-0 w-screen" data-lenis-prevent>
-                <div class="site-container h-full w-full">
-                    <nav class="site-header__navigation--mobile h-full flex flex-col">
+                <div class="menu-container">
+                    <div class="site-container">
                         <?php
                         echo wp_nav_menu([
                             'theme_location' => 'header',
-                            'menu_class' => 'site-header__menu-mobile flex flex-col ',
+                            'menu_class' => 'site-header__menu',
                             'container' => false,
-                            'walker'    => new Mobile_Walker_Nav_Menu(),
                         ]);
                         ?>
-                    </nav>
+                    </div>
                 </div>
             </div>
         </header>
-        <div class="mt-100">
         <?php endif; ?>
