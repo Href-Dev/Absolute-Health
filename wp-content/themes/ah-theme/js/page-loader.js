@@ -31,34 +31,35 @@ function runWhenjQueryReady() {
                 const $pageLoaderContainer = $('.page-loader-container');
                 if ($pageLoaderContainer.length) {
                     const stageDelaysMs = [
-                        1000, // stage 1
-                        1000, // stage 2
-                        1000, // stage 3
-                        1500, // stage 4
-                        3000, // stage 5
-                        4000, // stage 6
-                        3000, // stage 7
-                        1500, // stage 8
-                        1000, // stage 9
-                        1800, // stage 10
-                        1800, // stage 11
-                        2000, // stage 12
-                        1500, // stage 13
-                        1000, // stage 14
-                        1000, // stage 15
-                        1000, // stage 16
-                        1000, // stage 17
+                        1000,
+                        1000,
+                        1000,
+                        1500,
+                        3000,
+                        4000,
+                        3000,
+                        1500,
+                        1000,
+                        1800,
+                        1800,
+                        2000,
+                        1500,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
                     ];
 
-                    let totalDelay = 0;
-                    stageDelaysMs.forEach((delay, index) => {
-                        totalDelay += delay;
-                        setTimeout(() => {
-                            $('.page-loader-container').removeClass('stage-' + index);
-                            $('.page-loader-container').addClass('stage-' + (index + 1));
-                        }, totalDelay);
-                        console.log(totalDelay);
-                    });
+                    // let totalDelay = 0;
+                    // stageDelaysMs.forEach((delay, index) => {
+                    //     totalDelay += delay;
+                    //     setTimeout(() => {
+                    //         $('.page-loader-container').removeClass('stage-' + index);
+                    //         $('.page-loader-container').addClass('stage-' + (index + 1));
+                    //     }, totalDelay);
+                    // });
+
+                    
 
                     const LinkEl = $('.page-loader .link-el');
                     LinkEl.each(function () {
