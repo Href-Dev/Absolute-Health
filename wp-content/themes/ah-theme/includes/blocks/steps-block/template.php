@@ -51,7 +51,7 @@ if ($block && $block_id && isset($block['ghostkit']['styles']) && $spacings = $b
         <?php if ($steps) : ?>
             <div class="steps-container">
                 <?php foreach ($steps as $i => $step) : ?>
-                    <div class="single-step" data-animate="fade-up" data-delay="<?php echo $i * 0.1; ?>">
+                    <div class="single-step" data-animate="fade-up" data-delay="<?php echo ($i+1) * 0.2; ?>">
                         <?php if ($step['step_number_icon']) : ?>
                             <div class="step-icon">
                                 <?php echo acf_img($step['step_number_icon'], 'step-icon'); ?>

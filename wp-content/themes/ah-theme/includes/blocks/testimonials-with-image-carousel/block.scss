@@ -1,5 +1,8 @@
 .testimonials-with-image-carousel {
-    padding: 90px 0;
+    padding: 120px 0;
+    @media only screen and (max-width: 1024px) {
+        padding: 80px 0;
+    }
     @media only screen and (max-width: 767px) {
         padding: 50px 0;
     }
@@ -46,6 +49,14 @@
                         transform: translateX(100%);
                         opacity: 0;
                         transition: all 0.5s ease-in-out;
+
+                        .quote-text {
+                            max-width: 520px;
+                            @media only screen and (max-width: 767px) {
+                                max-width: 100%;
+                            }
+                        }
+
                     }
                 }
                 &.flipped {
@@ -61,9 +72,6 @@
                         }
                     }
                 }
-            }
-            .swiper-pag {
-                margin-top: 50px;
             }
 
             &.animated {
@@ -81,6 +89,12 @@
                     }
                 }
             }
+        }
+    }
+    .swiper-pag {
+        margin-top: 50px;
+        @media only screen and (max-width: 767px) {
+            margin-top: 20px;
         }
     }
     

@@ -169,12 +169,13 @@ body {
 
 em, i {
     font-family: "Roboto Serif", serif;
-    strong {
+    strong, b {
         font-weight: 500;
     }
 }
-strong {
-    em {
+strong, b {
+    font-weight: 500;
+    em, i {
         font-weight: 500;
     }
 }
@@ -188,11 +189,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     }
     p {
         font-size: inherit;
+        line-height: inherit;
     }
 }
 
 h1, .h1, .gform_title, .site-header__menu>*{
     @include fluid-type(28px, 50px, 500px, 1920px);
+    line-height: 1.2;
     &.large {
         @include fluid-type(40px, 60px, 500px, 1920px);
     }
@@ -201,28 +204,30 @@ h1, .h1, .gform_title, .site-header__menu>*{
     }
 }
 
-h2, .h2, .quote-text{
-    @include fluid-type(24px, 38px, 500px, 1920px);
+h2, .h2{
+    @include fluid-type(28px, 50px, 500px, 1920px);
+    line-height: 1.2;
 }
 
-h3, .h3, .sub-menu .menu-item{
-    @include fluid-type(22px, 34px, 500px, 1920px);
+h3, .h3, .quote-text{
+    @include fluid-type(24px, 38px, 500px, 1920px);
     line-height: 1.23;
     b, strong, i, em {
         font-weight: 300;
     }
 }
 
-h4, .h4{
-    @include fluid-type(19px, 28px, 500px, 1920px);
+h4, .h4, .sub-menu .menu-item{
+    @include fluid-type(22px, 34px, 500px, 1920px);
+    line-height: 1.23;
 }
 
 h5, .h5{
-    @include fluid-type(17px, 20px, 500px, 1920px);
+    @include fluid-type(19px, 28px, 500px, 1920px);
 }
 
 h6, .h6{
-    @include fluid-type(16px, 18px, 500px, 1920px);
+    @include fluid-type(17px, 20px, 500px, 1920px);
 }
 
 .stats-text {

@@ -42,9 +42,20 @@ if ($block && $block_id && isset($block['ghostkit']['styles']) && $spacings = $b
     id="<?php echo $block_id; ?>" 
     class="<?php echo $class_name; ?>"
 >
-    <div class="background-container">
-        <?php echo acf_img($background_image, 'background-image') ?>
-    </div>
+    <?php if ($background_image) : ?>
+        <div class="background-container" 
+        style="
+        background-image: 
+            linear-gradient(263deg, #FFF -3.16%, #FF6B38 48.42%, #121C63 94.44%),
+            url('<?php echo $background_image['url']; ?>');
+        background-position: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply, multiply;
+        "
+        >
+        </div>
+    <?php endif; ?>
     <div class="site-container">
         <div class="testimonials-carousel swiper" data-swiper-type="testimonials">
             <div class="swiper-wrapper">

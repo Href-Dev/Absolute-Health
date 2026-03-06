@@ -83,7 +83,8 @@ section {
             & + .has-bg.bg-colour-dark-purple {
                 padding-top: 0 !important;
             }
-            h1, h2, h3, h4, h5, h6 {
+            h1, h2, h3, h4, h5, h6, 
+            .h1, .h2, .h3, .h4, .h5, .h6 {
                 color: #FF6B38;
             }
             color: #fff;

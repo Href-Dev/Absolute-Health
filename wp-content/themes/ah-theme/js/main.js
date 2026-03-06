@@ -278,7 +278,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
-                  start: 'top bottom',
+                  start: 'top 75%',
                 },
               });
               break;
@@ -291,7 +291,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
-                  start: 'top bottom',
+                  start: 'top 75%',
                 },
               });
               break;
@@ -304,7 +304,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
-                  start: 'top bottom',
+                  start: 'top 75%',
                 },
               });
               break;
@@ -317,7 +317,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
-                  start: 'top bottom',
+                  start: 'top 75%',
                 },
               });
               break;
@@ -330,7 +330,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 delay: $this.data('delay') || 0.2,
                 scrollTrigger: {
                   trigger: $this,
-                  start: 'top bottom',
+                  start: 'top 75%',
                 },
               });
               break;
@@ -338,7 +338,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
                 // If data-animate is set to 'class-on-scroll', add the class 'animated' on scroll into view
                 ScrollTrigger.create({
                   trigger: $this,
-                  start: 'top bottom',
+                  start: 'top 75%',
                   onEnter: () => {
                     $this.addClass('animated');
                   }
@@ -417,7 +417,6 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
         });
       }
     }
-
 
     const newsListingInfiniteScroll = () => {
       const $containers = $('.ajax-post-listing-container');
@@ -530,8 +529,6 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
       });
     };
 
-
-
     const heroBlockJS = () => {
       const heroBlock = $('.hero-block');
       if (heroBlock.length) {
@@ -545,7 +542,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
           ScrollTrigger.create({
             trigger: $this,
             start: "top top",
-            end: () => `+=${window.innerHeight}`,
+            end: () => `+=${window.innerHeight * 0.5}`,
             scrub: true,
             onUpdate: self => {
               const scale = 1 + 0.15 * self.progress;
@@ -571,7 +568,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
           ScrollTrigger.create({
             trigger: $this,
             start: "top top",
-            end: () => `+=${window.innerHeight}`,
+            end: () => `+=${window.innerHeight * 0.5}`,
             scrub: true,
             onUpdate: self => {
               const scale = 1 + 0.15 * self.progress;
